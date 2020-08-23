@@ -6,7 +6,7 @@
       "value": "NTUPRD"
     },
     "repoBaseUrl": {
-      "value": "https://github.com/yiqxie/APIMDemo/blob/master/Template"
+      "value": "https://apimtemplate.blob.core.windows.net/apim"
     }
   },
   "resources": []
