@@ -1,0 +1,96 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "repoBaseUrl": {
+      "type": "string",
+      "metadata": {
+        "description": "Base URL of the repository"
+      }
+    },
+    "ApimServiceName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of the API Management"
+      }
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "apiVersion": "2017-05-10",
+      "name": "apisTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(parameters('repoBaseUrl'), '/NTUDemo-apis.template.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "ApimServiceName": { "value": "[parameters('ApimServiceName')]" }
+        }
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Resources/deployments', 'productsTemplate')]",
+        "[resourceId('Microsoft.Resources/deployments', 'authTemplate')]",
+        "[resourceId('Microsoft.Resources/deployments', 'policyTemplate')]"
+      ]
+    },
+    {
+      "apiVersion": "2017-05-10",
+      "name": "productsTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(parameters('repoBaseUrl'), '/NTUDemo-products.template.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "ApimServiceName": { "value": "[parameters('ApimServiceName')]" }
+        }
+      },
+      "dependsOn": [
+
+      ]
+    },
+    {
+      "apiVersion": "2017-05-10",
+      "name": "authTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(parameters('repoBaseUrl'), '/NTUDemo-authorizationServers.template.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "ApimServiceName": { "value": "[parameters('ApimServiceName')]" }
+        }
+      },
+      "dependsOn": [
+       
+      ]
+    },
+    {
+      "apiVersion": "2017-05-10",
+      "name": "policyTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[concat(parameters('repoBaseUrl'), '/NTUDemo-globalServicePolicy.template.json')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "ApimServiceName": { "value": "[parameters('ApimServiceName')]" }
+        }
+      },
+      "dependsOn": [
+       
+      ]
+    }
+  ],
+  "outputs": {}
+}

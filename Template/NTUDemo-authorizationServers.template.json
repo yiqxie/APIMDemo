@@ -1,0 +1,125 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "ApimServiceName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "properties": {
+        "description": "The Demo for API OAuth 2.0",
+        "authorizationMethods": [
+          "GET"
+        ],
+        "clientAuthenticationMethod": [
+          "Body"
+        ],
+        "tokenBodyParameters": [],
+        "tokenEndpoint": "https://login.microsoftonline.com/47630ed8-f380-43bb-9257-28b090b279bb/oauth2/v2.0/token",
+        "supportState": false,
+        "defaultScope": "api://3e3d8e9c-a060-4e22-baaf-00ea86b03a14/User.Read",
+        "bearerTokenSendingMethods": [
+          "authorizationHeader"
+        ],
+        "clientSecret": "EycM0t8_E1qqU1M0qU.bAG8FG_VcwLY.~K",
+        "displayName": "APIOAuth",
+        "clientRegistrationEndpoint": "http://www.baidu.com",
+        "authorizationEndpoint": "https://login.microsoftonline.com/47630ed8-f380-43bb-9257-28b090b279bb/oauth2/v2.0/authorize",
+        "grantTypes": [
+          "authorizationCode"
+        ],
+        "clientId": "e5efa083-6e93-4d2a-a102-33d57450ecb1"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/apioauth')]",
+      "type": "Microsoft.ApiManagement/service/authorizationServers",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "description": "demo",
+        "authorizationMethods": [
+          "GET",
+          "POST"
+        ],
+        "clientAuthenticationMethod": [
+          "Body"
+        ],
+        "tokenBodyParameters": [],
+        "tokenEndpoint": "https://login.microsoftonline.com/47630ed8-f380-43bb-9257-28b090b279bb/oauth2/v2.0/token",
+        "supportState": false,
+        "defaultScope": "api://3e3d8e9c-a060-4e22-baaf-00ea86b03a14/User.Read",
+        "bearerTokenSendingMethods": [
+          "authorizationHeader"
+        ],
+        "clientSecret": "eqOWo3--du1WRGbzcQ5~~I_S8eGk__K~AN",
+        "displayName": "ntu",
+        "clientRegistrationEndpoint": "http://www.google.com",
+        "authorizationEndpoint": "https://login.microsoftonline.com/47630ed8-f380-43bb-9257-28b090b279bb/oauth2/v2.0/authorize",
+        "grantTypes": [
+          "authorizationCode"
+        ],
+        "clientId": "3e3d8e9c-a060-4e22-baaf-00ea86b03a14"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/ntu')]",
+      "type": "Microsoft.ApiManagement/service/authorizationServers",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "description": "Demo",
+        "authorizationMethods": [
+          "GET"
+        ],
+        "clientAuthenticationMethod": [
+          "Body"
+        ],
+        "tokenBodyParameters": [],
+        "tokenEndpoint": "https://login.microsoftonline.com/47630ed8-f380-43bb-9257-28b090b279bb/oauth2/v2.0/token",
+        "supportState": false,
+        "defaultScope": "api://7356c343-9bc1-4e80-85b9-70dffa11b5e4/User.Read",
+        "bearerTokenSendingMethods": [
+          "authorizationHeader"
+        ],
+        "displayName": "OAuth2",
+        "clientRegistrationEndpoint": "http://127.0.0.1",
+        "authorizationEndpoint": "https://login.microsoftonline.com/47630ed8-f380-43bb-9257-28b090b279bb/oauth2/v2.0/authorize",
+        "grantTypes": [
+          "authorizationCode"
+        ],
+        "clientId": "7356c343-9bc1-4e80-85b9-70dffa11b5e4"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/oauth2')]",
+      "type": "Microsoft.ApiManagement/service/authorizationServers",
+      "apiVersion": "2019-01-01"
+    },
+    {
+      "properties": {
+        "description": "Demo",
+        "authorizationMethods": [
+          "GET"
+        ],
+        "clientAuthenticationMethod": [
+          "Body"
+        ],
+        "tokenBodyParameters": [],
+        "tokenEndpoint": "https://login.microsoftonline.com/47630ed8-f380-43bb-9257-28b090b279bb/oauth2/v2.0/token",
+        "supportState": false,
+        "bearerTokenSendingMethods": [
+          "authorizationHeader"
+        ],
+        "displayName": "OAuthDemo",
+        "clientRegistrationEndpoint": "http://www.google.com",
+        "authorizationEndpoint": "https://login.microsoftonline.com/47630ed8-f380-43bb-9257-28b090b279bb/oauth2/v2.0/authorize",
+        "grantTypes": [
+          "authorizationCode"
+        ],
+        "clientId": "7356c343-9bc1-4e80-85b9-70dffa11b5e4"
+      },
+      "name": "[concat(parameters('ApimServiceName'), '/oauthdemo')]",
+      "type": "Microsoft.ApiManagement/service/authorizationServers",
+      "apiVersion": "2019-01-01"
+    }
+  ]
+}
