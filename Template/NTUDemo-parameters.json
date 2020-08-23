@@ -4,6 +4,9 @@
   "parameters": {
     "ApimServiceName": {
       "value": "NTUPRD"
+    },
+    "repoBaseUrl": {
+      "value": "https://github.com/yiqxie/APIMDemo/blob/master/Template"
     }
   },
   "resources": []
